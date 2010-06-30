@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+		android:title="Application data">
+		<Preference
+			android:title="Delete history"
+			android:summary="Clear history scripts"
+			android:key="clearHistory" />
+		<Preference
+			android:title="Delete saved scripts"
+			android:summary="Clear your saved scripts"
+			android:key="clearSaved" />
+	</PreferenceCategory>
+</PreferenceScreen>
