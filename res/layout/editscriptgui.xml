@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent">
+	<TextView
+		android:text="Script Name [Optional]"
+		android:id="@+id/TextView01"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+	</TextView>
+	<EditText
+		android:id="@+id/ScriptNameEditText"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:hint="Script Name">
+	</EditText>
+	<TextView
+		android:text="Commands"
+		android:id="@+id/TextView02"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+	</TextView>
+	<EditText
+		android:id="@+id/CommandsEditText"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:gravity="top|left">
+	</EditText>
+	<LinearLayout
+		android:id="@+id/LinearLayout01"
+		android:background="@color/darkGray"
+		android:padding="5dp"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent">
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:layout_weight="1"
+			android:id="@+id/SaveManualButton"
+			android:text="Save">
+		</Button>
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:layout_weight="1"
+			android:id="@+id/CancelManualButton"
+			android:text="Cancel">
+		</Button>
+	</LinearLayout>
+</LinearLayout>

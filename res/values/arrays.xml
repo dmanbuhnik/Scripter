@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<array
+		name="backgroundsNames">
+		<item>Oriental Deco Artex</item>
+		<item>Tear Drop Spin</item>
+		<item>Square Hoops</item>
+		<item>Double Floaters</item>
+		<item>Soft Diagonal Stripes</item>
+	</array>
+	<array
+		name="backgroundsImages">
+		<item>@drawable/background0</item>
+		<item>@drawable/background1</item>
+		<item>@drawable/background2</item>
+		<item>@drawable/background3</item>
+		<item>@drawable/background4</item>
+	</array>
+</resources>
