@@ -1,61 +1,15 @@
 package com.faziklogic.scripter;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-
-import android.util.Log;
 
 public class Utils {
 	public final static String TAG = "Utils";
-
-	public static ArrayList<String> runShellCommand(String command) {
-		ArrayList<String> output = new ArrayList<String>();
-
-		Process process = null;
-		BufferedReader input = null;
-		DataOutputStream os = null;
-		try {
-			process = Runtime.getRuntime().exec("sh");
-			os = new DataOutputStream(process.getOutputStream());
-			Log.d(TAG, "Running command - [" + command + "]");
-			os.writeBytes(command + "\n");
-			os.flush();
-			os.writeBytes("exit\n");
-			os.flush();
-			input = new BufferedReader(new InputStreamReader(process
-					.getInputStream()));
-			String line;
-			process.waitFor();
-			while ((line = input.readLine()) != null) {
-				output.add(line);
-			}
-			input.close();
-			return output;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		} finally {
-			try {
-				if (os != null)
-					os.close();
-				if (process != null)
-					process.destroy();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
 
 	public static String readFile(String file) {
 		try {
@@ -80,5 +34,19 @@ public class Utils {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public static boolean writeFile(String file, String content) {
+		try {
+			File fOut = new File(file);
+			FileWriter fWriter = new FileWriter(fOut);
+			BufferedWriter out = new BufferedWriter(fWriter);
+			out.write(content);
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 }

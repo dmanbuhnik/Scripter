@@ -1,7 +1,5 @@
 package com.faziklogic.scripter;
 
-import java.util.ArrayList;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.app.AlertDialog.Builder;
@@ -9,19 +7,17 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Handler;
-import android.util.Log;
 
-public class RunScript extends AsyncTask<String, Void, Boolean> {
+import com.faziklogic.scripter.ShellCommand.CommandResult;
+
+public class RunScript extends AsyncTask<String, Void, CommandResult> {
 	Context context;
-	ShellInterface shellInterface;
 	ProgressDialog progressDialog;
 	Handler handler;
 	Runnable runnable;
 
-	public RunScript(Context context, ShellInterface shellInterface,
-			Handler handler, Runnable runnable) {
+	public RunScript(Context context, Handler handler, Runnable runnable) {
 		this.context = context;
-		this.shellInterface = shellInterface;
 		this.handler = handler;
 		this.runnable = runnable;
 	}
@@ -33,27 +29,58 @@ public class RunScript extends AsyncTask<String, Void, Boolean> {
 	}
 
 	@Override
-	protected Boolean doInBackground(String... params) {
-		Log.d("BLA",params[0]);
-		Log.d("BLA",shellInterface.toString());
-		String[] allCommands = params[0].split("\n");
-		ArrayList<String> commands = new ArrayList<String>(allCommands.length);
-		for (String command : allCommands) {
-			commands.add(command);
-		}
-		return shellInterface.runCommands(commands);
+	protected CommandResult doInBackground(String... params) {
+		ShellCommand cmd = new ShellCommand();
+		CommandResult r = cmd.su.runWaitFor(params[0]);
+		return r;
 	}
 
 	@Override
-	protected void onPostExecute(Boolean result) {
+	protected void onPostExecute(final CommandResult result) {
 		progressDialog.dismiss();
 		Builder finishDialog = new AlertDialog.Builder(this.context);
 		finishDialog.setTitle("Script complete");
-		if (result)
+		if (result.success())
 			finishDialog.setMessage("Script completed cleanly");
-		else
-			finishDialog.setMessage("Error occurred while running the script");
-		finishDialog.setPositiveButton("Ok",
+		else {
+			finishDialog.setMessage("Error occurred while running the script\n"
+					+ "It may or may not effect the outcome of the script\n"
+					+ "Use 'More info' for detail error log");
+		}
+		finishDialog.setPositiveButton("More info",
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+						Builder moreInfoDialog = new AlertDialog.Builder(
+								RunScript.this.context);
+						moreInfoDialog.setTitle("Output information");
+						String output = "stdout:\n";
+						if (result.stdout == null)
+							output += "[empty]";
+						else
+							output += result.stdout;
+						output += "\nstderr:\n";
+						if (result.stderr == null)
+							output += "[empty]";
+						else
+							output += result.stderr;
+						moreInfoDialog.setMessage(output);
+						moreInfoDialog.setPositiveButton("Close",
+								new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.dismiss();
+										if (handler != null)
+											if (runnable != null)
+												handler.post(runnable);
+									}
+								});
+						moreInfoDialog.show();
+					}
+				});
+		finishDialog.setNegativeButton("Close",
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {

@@ -8,69 +8,95 @@
 package com.faziklogic.scripter;
 
 public final class R {
+    public static final class array {
+        public static final int backgroundsImages=0x7f050001;
+        public static final int backgroundsNames=0x7f050000;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int blackbackground=0x7f050005;
-        public static final int darkGray=0x7f050003;
-        public static final int gray=0x7f050001;
-        public static final int green=0x7f050002;
-        public static final int red=0x7f050004;
-        public static final int white=0x7f050000;
+        public static final int blackbackground=0x7f060005;
+        public static final int darkGray=0x7f060003;
+        public static final int gray=0x7f060001;
+        public static final int green=0x7f060002;
+        public static final int red=0x7f060004;
+        public static final int white=0x7f060000;
     }
     public static final class drawable {
-        public static final int backgroud=0x7f020000;
-        public static final int icon=0x7f020001;
-        public static final int review_icon=0x7f020002;
-        public static final int run_icon=0x7f020003;
-        public static final int save_icon=0x7f020004;
-        public static final int tile=0x7f020005;
+        public static final int background0=0x7f020000;
+        public static final int background1=0x7f020001;
+        public static final int background2=0x7f020002;
+        public static final int background3=0x7f020003;
+        public static final int background4=0x7f020004;
+        public static final int backgroundimage0=0x7f020005;
+        public static final int backgroundimage1=0x7f020006;
+        public static final int backgroundimage2=0x7f020007;
+        public static final int backgroundimage3=0x7f020008;
+        public static final int backgroundimage4=0x7f020009;
+        public static final int helptext=0x7f02000a;
+        public static final int icon=0x7f02000b;
     }
     public static final class id {
-        public static final int AcceptDisclaimerButton=0x7f080004;
-        public static final int CancelButton=0x7f080014;
-        public static final int DeclineDisclaimerButton=0x7f080005;
-        public static final int DisclaimerText=0x7f080002;
-        public static final int HistoryListHeader=0x7f08000f;
-        public static final int LastRun=0x7f080008;
-        public static final int LinearLayout01=0x7f080003;
-        public static final int LinearLayout02=0x7f080006;
-        public static final int LinearLayout03=0x7f080009;
-        public static final int ListFooter=0x7f080011;
-        public static final int Name=0x7f080007;
-        public static final int SaveButton=0x7f080015;
-        public static final int SavedListHeader=0x7f08000d;
-        public static final int ScanButton=0x7f080012;
-        public static final int ScriptNameEditText=0x7f080013;
-        public static final int TextView01=0x7f080000;
-        public static final int historyList=0x7f080010;
-        public static final int horizontalLine=0x7f080001;
-        public static final int menu_about=0x7f080016;
-        public static final int menu_contact=0x7f080017;
-        public static final int menu_quit=0x7f080019;
-        public static final int menu_settings=0x7f080018;
-        public static final int reviewButton=0x7f08000b;
-        public static final int runButton=0x7f08000c;
-        public static final int saveButton=0x7f08000a;
-        public static final int savedList=0x7f08000e;
+        public static final int AcceptDisclaimerButton=0x7f090006;
+        public static final int CancelManualButton=0x7f09000c;
+        public static final int CommandsEditText=0x7f09000a;
+        public static final int DeclineDisclaimerButton=0x7f090007;
+        public static final int DisclaimerText=0x7f090004;
+        public static final int LastRun=0x7f090011;
+        public static final int LinearLayout01=0x7f090005;
+        public static final int LinearLayout02=0x7f09000f;
+        public static final int ListFooter=0x7f090015;
+        public static final int MainLayout=0x7f090012;
+        public static final int ManualButton=0x7f090016;
+        public static final int Name=0x7f090010;
+        public static final int SaveManualButton=0x7f09000b;
+        public static final int ScanButton=0x7f090017;
+        public static final int ScriptNameEditText=0x7f090008;
+        public static final int TextGuide=0x7f09000d;
+        public static final int TextView01=0x7f090002;
+        public static final int TextView02=0x7f090009;
+        public static final int allList=0x7f090013;
+        public static final int backgroundItemImage=0x7f090001;
+        public static final int backgroundItemName=0x7f090000;
+        public static final int helpImageButton=0x7f090014;
+        public static final int horizontalLine=0x7f090003;
+        public static final int list_header_title=0x7f09000e;
+        public static final int list_menu_delete=0x7f090021;
+        public static final int list_menu_edit=0x7f090020;
+        public static final int list_menu_review=0x7f09001f;
+        public static final int list_menu_run=0x7f09001d;
+        public static final int list_menu_save=0x7f09001e;
+        public static final int menu_about=0x7f090018;
+        public static final int menu_change_log=0x7f090019;
+        public static final int menu_contact=0x7f09001a;
+        public static final int menu_quit=0x7f09001c;
+        public static final int menu_settings=0x7f09001b;
     }
     public static final class layout {
-        public static final int disclaimer=0x7f030000;
-        public static final int listitem=0x7f030001;
-        public static final int maingui=0x7f030002;
-        public static final int savescriptdialog=0x7f030003;
+        public static final int backgroundrow=0x7f030000;
+        public static final int disclaimer=0x7f030001;
+        public static final int editscriptgui=0x7f030002;
+        public static final int guidegui=0x7f030003;
+        public static final int listheader=0x7f030004;
+        public static final int listitem=0x7f030005;
+        public static final int maingui=0x7f030006;
     }
     public static final class menu {
-        public static final int main_menu=0x7f070000;
+        public static final int main_menu=0x7f080000;
+        public static final int script_context_menu=0x7f080001;
     }
     public static final class string {
-        public static final int about=0x7f060003;
-        public static final int app_name=0x7f060000;
-        public static final int dislaimerText=0x7f060002;
-        public static final int emailAddress=0x7f060001;
-        public static final int missingBusybox=0x7f060005;
-        public static final int missingScanApp=0x7f060006;
-        public static final int missingSu=0x7f060004;
+        public static final int about=0x7f070003;
+        public static final int app_name=0x7f070000;
+        public static final int changeLog=0x7f070005;
+        public static final int dislaimerText=0x7f070002;
+        public static final int emailAddress=0x7f070001;
+        public static final int fileExists=0x7f07000a;
+        public static final int guideString=0x7f070004;
+        public static final int missingBusybox=0x7f070007;
+        public static final int missingScanApp=0x7f070008;
+        public static final int missingSu=0x7f070006;
+        public static final int noSdcard=0x7f070009;
     }
     public static final class xml {
         public static final int preferences=0x7f040000;

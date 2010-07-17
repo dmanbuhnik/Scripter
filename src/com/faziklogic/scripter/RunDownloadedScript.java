@@ -5,11 +5,11 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 
 public class RunDownloadedScript extends Activity {
-	ShellInterface shellInterface;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,15 +18,20 @@ public class RunDownloadedScript extends Activity {
 				false))
 			startActivityForResult(new Intent(this, Disclaimer.class),
 					Scripter.ACTIVITY_DISCLAIMER);
+		else
+			afterDisclaimer();
+	}
+
+	public void afterDisclaimer() {
 		if (!getSharedPreferences(Scripter.TAG, 0).getBoolean(
 				"applicationInitialized", false))
 			startActivityForResult(new Intent(this, InitScripter.class),
 					Scripter.ACTIVITY_INIT);
 		else
-			shellInterface = new ShellInterface(getSharedPreferences(
-					Scripter.TAG, 0).getString("suBinary", null),
-					getSharedPreferences(Scripter.TAG, 0).getString(
-							"busyboxBinary", null));
+			afterInit();
+	}
+
+	private void afterInit() {
 		Intent intent = getIntent();
 
 		final String script = Utils.readFile(intent.getData().getEncodedPath());
@@ -69,7 +74,7 @@ public class RunDownloadedScript extends Activity {
 								}
 							};
 							new RunScript(RunDownloadedScript.this,
-									shellInterface, finishActivityHandler,
+									finishActivityHandler,
 									finishActivityRunnable).execute(script);
 							dialog.dismiss();
 						}
@@ -93,15 +98,57 @@ public class RunDownloadedScript extends Activity {
 			if (!getSharedPreferences(Scripter.TAG, 0).getBoolean("userAgreed",
 					false))
 				finish();
+			else
+				afterDisclaimer();
 			break;
 		case (Scripter.ACTIVITY_INIT):
-			if (resultCode == RESULT_OK) {
-				shellInterface = new ShellInterface(getSharedPreferences(
-						Scripter.TAG, 0).getString("suBinary", null),
-						getSharedPreferences(Scripter.TAG, 0).getString(
-								"busyboxBinary", null));
-			} else if (resultCode == RESULT_CANCELED) {
-				finish();
+			if (!getSharedPreferences(Scripter.TAG, 0).getBoolean("hasSu",
+					false)) {
+				Builder missingSUDialog = new AlertDialog.Builder(this);
+				missingSUDialog.setTitle("Cannot continue");
+				missingSUDialog.setMessage(getResources().getString(
+						R.string.missingSu));
+				missingSUDialog.setPositiveButton("Ok",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								finish();
+							}
+						});
+				missingSUDialog.show();
+			} else if (!getSharedPreferences(Scripter.TAG, 0).getBoolean(
+					"hasBb", false)) {
+				Builder missingBBDialog = new AlertDialog.Builder(this);
+				missingBBDialog.setTitle("Cannot continue");
+				missingBBDialog.setMessage(getResources().getString(
+						R.string.missingBusybox));
+				missingBBDialog.setPositiveButton("Search Market",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								RunDownloadedScript.this
+										.startActivity(new Intent(
+												Intent.ACTION_VIEW,
+												Uri
+														.parse("market://search?q=busybox")));
+								setResult(RESULT_CANCELED);
+								finish();
+							}
+						});
+				missingBBDialog.setNegativeButton("Cancel",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								setResult(RESULT_CANCELED);
+								finish();
+							}
+						});
+				missingBBDialog.show();
+			} else {
+				afterInit();
 			}
 			break;
 		}

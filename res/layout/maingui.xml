@@ -1,52 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-	android:id="@+id/LinearLayout01"
+	android:id="@+id/MainLayout"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical"
-	android:weightSum="1"
-	android:background="@drawable/backgroud">
-	<TextView
-		android:id="@+id/SavedListHeader"
-		android:text="Saved scripts"
-		android:textStyle="bold"
-		android:background="@color/darkGray"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
-	</TextView>
+	android:weightSum="1">
 	<ListView
-		android:id="@+id/savedList"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
-	</ListView>
-	<TextView
-		android:id="@+id/HistoryListHeader"
-		android:text="History"
-		android:textStyle="bold"
-		android:background="@color/darkGray"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
-	</TextView>
-	<ListView
-		android:id="@+id/historyList"
+		android:id="@+id/allList"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_weight="1">
+		android:layout_weight="1"
+		android:cacheColorHint="@android:color/transparent">
 	</ListView>
-	<RelativeLayout
+	<ImageButton
+		android:id="@+id/helpImageButton"
+		android:src="@drawable/helptext"
+		android:layout_height="fill_parent"
+		android:layout_width="fill_parent"
+		android:background="@android:color/transparent"
+		android:scaleType="fitCenter"
+		android:visibility="gone"
+		android:layout_weight="1">
+	</ImageButton>
+	<LinearLayout
 		android:id="@+id/ListFooter"
 		android:background="@color/darkGray"
 		android:padding="5dp"
 		android:layout_height="wrap_content"
 		android:layout_width="fill_parent">
 		<Button
-			android:layout_gravity="center"
-			android:layout_centerInParent="true"
+			android:id="@+id/ManualButton"
+			android:text="Create script"
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:layout_weight="1">
+		</Button>
+		<Button
 			android:id="@+id/ScanButton"
 			android:text="Scan script"
-			android:layout_centerHorizontal="true"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+			android:layout_width="fill_parent"
+			android:layout_weight="1">
 		</Button>
-	</RelativeLayout>
+	</LinearLayout>
 </LinearLayout>

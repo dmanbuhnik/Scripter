@@ -4,17 +4,25 @@
 	<item
 		android:id="@+id/menu_about"
 		android:title="About"
-		android:icon="@android:drawable/ic_menu_info_details"/>
+		android:icon="@android:drawable/ic_menu_info_details" />
+	<item
+		android:id="@+id/menu_change_log"
+		android:title="Change Log"
+		android:icon="@android:drawable/ic_menu_info_details">
+	</item>
 	<item
 		android:id="@+id/menu_contact"
 		android:title="Contact Developer"
-		android:icon="@android:drawable/ic_menu_send"/>
+		android:icon="@android:drawable/ic_menu_send">
+	</item>
 	<item
 		android:id="@+id/menu_settings"
 		android:title="Settings"
-		android:icon="@android:drawable/ic_menu_preferences"/>
+		android:icon="@android:drawable/ic_menu_preferences">
+	</item>
 	<item
 		android:id="@+id/menu_quit"
 		android:title="Quit"
-		android:icon="@android:drawable/ic_menu_close_clear_cancel"/>
+		android:icon="@android:drawable/ic_menu_close_clear_cancel">
+	</item>
 </menu>

@@ -19,23 +19,46 @@
 		name="about">\"Scripter\" was built to simplify the way users will run
 		scripts.\nIf you have an idea, found a bug or want to make a
 		suggestion then please use the \"Contact Developer\" option and send
-		me an email.\n\nThis application was made while using some code that
-		can
-		be found at:\n* market-access\n* market-enabler\n* Su by
-		ChainsDD\nAnd many help sites all over the web.\nAlso Thank the people
-		that help me test the application:\n* Omer Itzhaki\n*
-		nisim2337\n*Avraham Makovetsky\nAnd others\n\n\"Scripter\" is an open
-		source project that was created by Dror Buhnik (Fazik Logic team of
-		one)</string>
+		me an email.\n\nCredits:\nCode -\n* market-access\n* market-enabler\n*
+		Su by ChainsDD\n* LouZiffer \nTesting -\n* Omer Itzhaki\n*
+		nisim2337\n* Avraham Makovetsky\nBackgrounds -\n*
+		www.patterncooler.com\n\n\"Scripter\" is a free open source project
+		that was created by Dror Buhnik (Fazik Logic team of one)</string>
+	<string
+		name="guideString">\"Scripter\" is scripts application for android platform.\nThere
+		are several ways you can run scripts while using this application:\n1)
+		scan QR code that contains the commands\n2) run from every file
+		explorer application by clicking on script file\n3) rerun any script
+		that you already ran in the past\n4) manually create script and run
+		it\n\n</string>
+	<string
+		name="changeLog">Version 1.8:\n* stdout and stderr info for each run (\'more
+		info\' button after running script)\n* you can change background! see
+		settings\n* you can now edit scripts\n* redesign of script list\n*
+		framework for guide, will be in the next version\n* framework for
+		running scripts without root permissions and running scripts after
+		reboot, will be in the next version\n\nVersion 1.5:\n* Export/Import
+		option to sdcard\n* Delete button foreach script\n* Create script
+		manually from the application\n* Directing users without Busybox to
+		the market application for easy installation\n* Better startup
+		procedure\n* Bug fix</string>
 	<string
 		name="missingSu">Cannot find su binary in your device.\nIn order to use this
 		application you must have root permissions.\n\nPlease head over to the
 		web and search on methods to root your device.</string>
 	<string
-		name="missingBusybox">Cannot find busybox binary in your device.\nIn order to use this
-		application you must have busybox installed\n\nPlease head over to the
-		web and search on methods to install busybox in your device.</string>
+		name="missingBusybox">Cannot find Busybox binary in your device.\nIn order to use this
+		application you must have busybox installed\n\nYou can search the
+		market for "Busybox" application by Stericson that will install
+		Busyboxy for you.\nOr install it yourself by searching the
+		instructions in the web.</string>
 	<string
 		name="missingScanApp">Cannot find the scanning application.\nPlease install \"Barcode
 		Scanner\" before using this option</string>
+	<string
+		name="noSdcard">Can\'t access sdcard. Make sure that he is inserted and
+		accessible by the device</string>
+	<string
+		name="fileExists">Previous file already exists in your sdcard.\nDo you want to
+		override it?</string>
 </resources>

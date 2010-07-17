@@ -11,5 +11,20 @@
 			android:title="Delete saved scripts"
 			android:summary="Clear your saved scripts"
 			android:key="clearSaved" />
+		<Preference
+			android:title="Export scrpits to sdcard"
+			android:summary="Backup all you scripts"
+			android:key="exportScripts" />
+		<Preference
+			android:title="Import scrpits from sdcard"
+			android:summary="Recover all you scripts"
+			android:key="importScripts" />
 	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="UI Customization">
+		<Preference
+			android:title="Background"
+			android:summary="Change application background"
+			android:key="changeBackground" />
+		</PreferenceCategory>
 </PreferenceScreen>
